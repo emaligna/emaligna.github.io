@@ -30,6 +30,8 @@
 		ng=[];
 		//symbols asigned from first line
 		mg=lines[0].split(',');
+		for(var i=0;i<mg.length;i++)
+		mg[i]=parseInt(mg[i]);
 		//initial state, read from 2nd line
 		q0g=lines[1].charAt(0)=='*'? lines[1].charAt(1):lines[1].charAt(0);
 		fg=[];
@@ -177,8 +179,8 @@
 		console.log("cadena: "+c.join(""));
 		console.log("elemento:"+c[i])
 		console.log("est-actual:"+e);
-		console.log("est-siguente:"+ag[parseInt(e)][parseInt(c[i])]);
-			evaluar(c,i+1,ag[parseInt(e)][parseInt(c[i])]);
+		console.log("est-siguente:"+ag[parseInt(e)][mg.indexOf(parseInt(c[i]))]);
+			evaluar(c,i+1,ag[parseInt(e)][mg.indexOf(parseInt(c[i]))]);
 		}
 	}
 	validateBrowserForFileUpload();
